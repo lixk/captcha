@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>滑动验证码</title>
+
+    <link rel="stylesheet" type="text/css" href="css/verify.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/verify.js"></script>
+</head>
+
+<body>
+
+<h3>滑动验证码</h3>
+<div id="slideCode">
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#slideCode').slideVerify({
+            type: 2,		//类型
+            vOffset: 5,	//误差量，根据需求自行调整
+            vSpace: 5,	//间隔
+            imageUrl: '/slideVerifyServlet',
+            checkUrl: '/slideVerifyServlet',
+            imageSize: {
+                width: '400px',
+                height: '200px',
+            },
+            blockSize: {
+                width: '80px',
+                height: '80px',
+            },
+            barSize: {
+                width: '400px',
+                height: '40px',
+            },
+            ready: function () {
+            },
+            success: function () {
+                alert('验证成功，添加你自己的代码！');
+                //......后续操作
+            },
+            error: function () {
+//		        	alert('验证失败！');
+            }
+        });
+
+    });
+
+
+</script>
+</body>
+
+</html>
